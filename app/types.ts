@@ -1,3 +1,6 @@
+// app/types.ts
+
+// These types belong here. They define your application's data structures.
 export interface Job {
     id: string; 
     title: string;
@@ -27,35 +30,9 @@ export interface JobCardProps {
     job : Job
 }
 
-
-// types/next-auth.d.ts
-
-import NextAuth, { DefaultSession } from "next-auth";
-import { JWT } from "next-auth/jwt";
-
-
-declare module "next-auth" {
- 
-  interface User {
-    accessToken?: string | null;
-    role?: string | null;
-    name?: string | null;
-    email?: string | null;
-  }
-
-  
-  interface Session {
-    user: {
-      accessToken?: string | null;
-      role?: string | null;
-    } & DefaultSession["user"]; // Keep the default properties
-  }
+export interface JobBookmark {
+ id: string;
+ userId: string;
+ opportunityId: string;
 }
 
-
-declare module "next-auth/jwt" {
-  interface JWT {
-    accessToken?: string | null;
-    role?: string | null;
-  }
-}
